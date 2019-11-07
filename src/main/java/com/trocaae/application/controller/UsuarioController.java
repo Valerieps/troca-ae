@@ -23,9 +23,9 @@ public class UsuarioController {
         return ok(usuario);
     }
 
-    @PostMapping("editar")
-    public ResponseEntity<Usuario> atualizarPerfil(@RequestBody UsuarioDTO request){
-        //TODO: Metodo que realiza login;
+    @PostMapping("editar/{usuarioId}")
+    public ResponseEntity<Usuario> atualizarPerfil(@PathVariable("usuarioId") Long usuarioId, @RequestBody UsuarioDTO request){
+
         return null;
     }
 

@@ -20,6 +20,7 @@ public class JogoPerfil {
     @Column(name = "publisher")
     private String publisher;
 
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Plataforma> plataformas = new ArrayList<>();
 
     public Long getId() {
