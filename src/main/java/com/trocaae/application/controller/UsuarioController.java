@@ -6,9 +6,7 @@ import com.trocaae.application.service.UsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 import static org.springframework.http.ResponseEntity.*;
 
@@ -19,9 +17,23 @@ public class UsuarioController {
     @Autowired
     private UsuarioService usuarioService;
 
-    @PostMapping("create")
+    @PostMapping("cadastro")
     public ResponseEntity<Usuario> create(@RequestBody UsuarioDTO request){
         Usuario usuario = this.usuarioService.create(request);
         return ok(usuario);
+    }
+
+    @PostMapping("editar")
+    public ResponseEntity<Usuario> atualizarPerfil(@RequestBody UsuarioDTO request){
+        //TODO: Metodo que realiza login;
+        return null;
+    }
+
+    //TODO: metodo para visuaizar um usuario
+
+    @DeleteMapping("{usuarioId}")
+    public ResponseEntity<Usuario> deletePerfil(@PathVariable("usuarioId") Long usuarioId){
+        //TODO: Metodo que realiza login;
+        return null;
     }
 }
