@@ -1,11 +1,7 @@
 package com.trocaae.application.model.dto;
 
-import com.trocaae.application.model.sql.Solicitacao;
-import org.apache.tomcat.jni.Local;
 import org.junit.Test;
-
 import java.time.LocalDate;
-
 import static junit.framework.TestCase.*;
 
 public class UsuarioDTOTest {
