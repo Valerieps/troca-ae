@@ -4,6 +4,5 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class JogoPerfilService {
-    // Implementar as funções abaixo
-
+    //todo Ver com a Fran
 }
