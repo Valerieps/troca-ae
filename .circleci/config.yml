@@ -4,7 +4,7 @@ jobs:
     working_directory: ~/troca-ae
 
     docker:
-      - image: circleci/openjdk:8-jdk-stretch
+      - image: circleci/openjdk:11.0.3-jdk-stretch
 
     steps:
 
