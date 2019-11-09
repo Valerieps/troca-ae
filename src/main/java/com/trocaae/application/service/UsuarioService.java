@@ -3,14 +3,17 @@ package com.trocaae.application.service;
 import com.trocaae.application.model.dto.UsuarioDTO;
 import com.trocaae.application.model.sql.Usuario;
 import com.trocaae.application.repository.UsuarioRepository;
-import org.springframework.beans.factory.annotation.Autowired;
+import javassist.NotFoundException;
 import org.springframework.stereotype.Service;
 
 @Service
 public class UsuarioService {
 
-    @Autowired
-    private UsuarioRepository repository;
+     private UsuarioRepository repository;
+
+    public UsuarioService(UsuarioRepository repository) {
+        this.repository = repository;
+    }
 
     public Usuario create(UsuarioDTO usuarioDTO){
         Usuario usuario = new Usuario();
@@ -21,5 +24,24 @@ public class UsuarioService {
         usuario.setName(usuarioDTO.getName());
 
         return this.repository.save(usuario);
+    }
+
+    public Usuario update(Long usuarioId, UsuarioDTO usuarioDTO) throws NotFoundException {
+        Usuario usuario = this.repository.findById(usuarioId).orElseThrow(() -> new NotFoundException("Usuario não encontrado"));
+        if(usuarioDTO.getDataDeNascimento() != null) usuario.setDataDeNascimento(usuarioDTO.getDataDeNascimento());
+        if(usuarioDTO.getEmail() != null) usuarioDTO.setEmail(usuarioDTO.getEmail());
+        if(usuarioDTO.getMatricula() != null) usuarioDTO.setMatricula(usuarioDTO.getMatricula());
+        if(usuarioDTO.getName() != null) usuarioDTO.setName(usuarioDTO.getName());
+        return this.repository.save(usuario);
+    }
+
+    public Usuario view(Long usuarioId) throws NotFoundException {
+        return this.repository.findById(usuarioId)
+                .orElseThrow(() -> new NotFoundException("Usuario não encontrado"));
+
+    }
+    public String delete(Long usuarioId) {
+        this.repository.deleteById(usuarioId);
+        return "Usuário " + usuarioId + " deletado com sucesso";
     }
 }

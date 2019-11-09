@@ -4,10 +4,10 @@ import java.time.LocalDate;
 
 public class UsuarioDTO {
 
-    public String name;
-    public String email;
-    public LocalDate dataDeNascimento;
-    public Boolean estaBloqueado;
+    private String name;
+    private String email;
+    private LocalDate dataDeNascimento;
+    private Boolean estaBloqueado;
 
     public String getName() {
         return name;
