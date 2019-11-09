@@ -1,10 +1,8 @@
 package com.trocaae.application.model.sql;
 
-
 import com.trocaae.application.model.util.Status;
 import org.junit.Test;
 import java.time.LocalDate;
-import java.util.*;
 import static junit.framework.TestCase.*;
 
 public class SolicitacaoTest {
