@@ -8,6 +8,7 @@ import javax.persistence.Id;
 @Entity
 public class Plataforma {
 
+    // todo @Fran colocar id como private. Se colocar, quebra.
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     public Long id;
