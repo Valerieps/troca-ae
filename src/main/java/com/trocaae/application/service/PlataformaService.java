@@ -5,15 +5,15 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class PlataformaService {
-    // todo Adicionar um novo perfil
-    public void adicionarNovoPerfil(JogoPerfil jogo){
-
-    }
-
-    // todo Remover um perfil, so possivel se não houver nenhum jogoInstancia cadastrado para aquele perfil
-    public removerPerfil(JogoPerfil jogo){
-
-    }
+//    // todo Adicionar um novo perfil
+//    public void adicionarNovoPerfil(JogoPerfil jogo){
+//
+//    }
+//
+//    // todo Remover um perfil, so possivel se não houver nenhum jogoInstancia cadastrado para aquele perfil
+//    public void removerPerfil(JogoPerfil jogo){
+//
+//    }
 
     // todo Visualizar uma lista de plataforma (pode ser filtrado por atributos)
     //??
