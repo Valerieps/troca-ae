@@ -23,7 +23,7 @@ public class JogoInstancia {
     @JoinColumn(name = "id_locatario")
     private Usuario locatario;
 
-    //Crete enum
+
     private Status situacao;
 
 }
