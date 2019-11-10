@@ -39,7 +39,7 @@ public class JogoPerfilController {
     }
 
     @GetMapping("view/list")
-    public ResponseEntity<List<JogoPerfil>> VisualizarListaJogoPerfil()  {
+    public ResponseEntity<List<JogoPerfil>> VisualizarListaJogoPerfil() {
         List<JogoPerfil> jogosPerfil = this.jogoPerfilService.viewList();
         return ok(jogosPerfil);
     }

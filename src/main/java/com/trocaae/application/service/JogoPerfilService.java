@@ -3,6 +3,7 @@ package com.trocaae.application.service;
 import com.trocaae.application.model.dto.JogoPerfilDTO;
 import com.trocaae.application.model.sql.JogoPerfil;
 import com.trocaae.application.model.sql.Plataforma;
+import com.trocaae.application.model.sql.Usuario;
 import com.trocaae.application.repository.JogoPerfilRepository;
 import javassist.NotFoundException;
 import org.springframework.stereotype.Service;
@@ -19,6 +20,11 @@ public class JogoPerfilService {
     public JogoPerfilService(JogoPerfilRepository repository, PlataformaService plataformaService) {
         this.repository = repository;
         this.plataformaService = plataformaService;
+    }
+
+    public JogoPerfil getJogoPerfil(Long perfilId) throws NotFoundException {
+        return this.repository.findById(perfilId)
+                .orElseThrow(() -> new NotFoundException("Perfil não encontrado"));
     }
 
     public JogoPerfil create(JogoPerfilDTO jogoPerfilDTO) {
@@ -41,18 +47,9 @@ public class JogoPerfilService {
         return this.repository.save(jogoPerfil);
     }
 
-    public JogoPerfil addPlataforma(Long jogoPerfilId, Long plataformaId) throws NotFoundException {
-        JogoPerfil jogoPerfil = this.repository.findById(jogoPerfilId)
-                .orElseThrow(() -> new NotFoundException("Perfil de jogo não encontrado"));
-        Plataforma plataforma = plataformaService.getPlataforma(plataformaId);
-        jogoPerfil.adicionaPlataforma(plataforma);
-        return this.repository.save(jogoPerfil);
-    }
-
     public JogoPerfil view(Long jogoPerfilId) throws NotFoundException {
         return this.repository.findById(jogoPerfilId)
                 .orElseThrow(() -> new NotFoundException("Jogo Perfil não encontrado"));
-
     }
 
     public List<JogoPerfil> viewList() {
@@ -62,6 +59,14 @@ public class JogoPerfilService {
     public String delete(Long jogoPerfilId) {
         this.repository.deleteById(jogoPerfilId);
         return "Jogo Perfil " + jogoPerfilId + " deletado com sucesso";
+    }
+
+    public JogoPerfil addPlataforma(Long jogoPerfilId, Long plataformaId) throws NotFoundException {
+        JogoPerfil jogoPerfil = this.repository.findById(jogoPerfilId)
+                .orElseThrow(() -> new NotFoundException("Perfil de jogo não encontrado"));
+        Plataforma plataforma = plataformaService.getPlataforma(plataformaId);
+        jogoPerfil.adicionaPlataforma(plataforma);
+        return this.repository.save(jogoPerfil);
     }
 
 }

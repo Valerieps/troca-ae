@@ -10,6 +10,14 @@ public class UsuarioDTO {
     private LocalDate dataDeNascimento;
     private Boolean estaBloqueado;
 
+    public String getMatricula() {
+        return matricula;
+    }
+
+    public void setMatricula(String matricula) {
+        this.matricula = matricula;
+    }
+
     public String getName() {
         return name;
     }
@@ -40,13 +48,5 @@ public class UsuarioDTO {
 
     public void setEstaBloqueado(Boolean estaBloqueado) {
         this.estaBloqueado = estaBloqueado;
-    }
-
-    public String getMatricula() {
-        return matricula;
-    }
-
-    public void setMatricula(String matricula) {
-        this.matricula = matricula;
     }
 }

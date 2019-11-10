@@ -1,9 +1,12 @@
 package com.trocaae.application.service;
 
+import com.trocaae.application.model.dto.PlataformaDTO;
 import com.trocaae.application.model.sql.Plataforma;
 import com.trocaae.application.repository.PlatormaRepository;
 import javassist.NotFoundException;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 public class PlataformaService {
@@ -19,20 +22,38 @@ public class PlataformaService {
                 .orElseThrow(() -> new NotFoundException("Perfil de jogo não encontrado"));
     }
 
-//    // todo Adicionar um novo perfil
-//    public void adicionarNovoPerfil(JogoPerfil jogo){
-//
-//    }
-//
-//    // todo Remover um perfil, so possivel se não houver nenhum jogoInstancia cadastrado para aquele perfil
-//    public void removerPerfil(JogoPerfil jogo){
-//
-//    }
+    public Plataforma create(PlataformaDTO plataformaDTO) {
+        Plataforma plataforma = new Plataforma();
+        plataforma.setName(plataformaDTO.getName());
+        plataforma.setFabricante(plataformaDTO.getFabricante());
+        plataforma.setRegiao(plataformaDTO.getRegiao());
+        return this.repository.save(plataforma);
+    }
 
-    // todo Visualizar uma lista de plataforma (pode ser filtrado por atributos)
-    //??
+    public Plataforma update(Long plataformaId, PlataformaDTO plataformaDTO) throws NotFoundException {
+        Plataforma plataforma = this.repository.findById(plataformaId)
+                .orElseThrow(() -> new NotFoundException("Plataforma não encontrado"));
+        if (plataformaDTO.getName() != null)
+            plataforma.setName(plataformaDTO.getName());
+        if (plataformaDTO.getRegiao() != null)
+            plataforma.setRegiao(plataformaDTO.getRegiao());
+        if (plataformaDTO.getFabricante() != null)
+            plataforma.setFabricante(plataformaDTO.getFabricante());
+        return this.repository.save(plataforma);
+    }
 
-    // todo Atualizar um perfil existente
-    // em JogoPerfil Entity tem todos os getters e setters. Precisa disso?
+    public Plataforma view(Long plataformaId) throws NotFoundException {
+        return this.repository.findById(plataformaId)
+                .orElseThrow(() -> new NotFoundException("Plataforma não encontrado"));
+    }
+
+    public List<Plataforma> viewList() {
+        return this.repository.findAll();
+    }
+
+    public String delete(Long plataformaId) {
+        this.repository.deleteById(plataformaId);
+        return "Plataforma com id: " + plataformaId + " deletado com sucesso";
+    }
 
 }

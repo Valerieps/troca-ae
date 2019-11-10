@@ -1,35 +1,29 @@
 package com.trocaae.application.model.sql;
 
-import com.trocaae.application.model.util.Predio;
-
 import javax.persistence.*;
 import java.time.LocalDate;
-import java.util.List;
-import java.util.Set;
 
 @Entity
 public class Usuario {
 
+    public String predios;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
     @Column(name = "name")
     private String name;
-
     @Column(name = "email")
     private String email;
-
     @Column(name = "data_de_nascimento")
     private LocalDate dataDeNascimento;
-
     @Column(name = "esta_bloqueado")
     private Boolean estaBloqueado;
-
     @Column(name = "matricula")
     private String matricula;
 
-    public String predios;
+    public Long getId() {
+        return id;
+    }
 
     public String getName() {
         return name;
