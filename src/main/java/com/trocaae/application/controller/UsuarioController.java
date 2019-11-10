@@ -9,7 +9,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
-import static org.springframework.http.ResponseEntity.*;
+import static org.springframework.http.ResponseEntity.ok;
 
 @Controller
 @RequestMapping("usuario/")
@@ -19,13 +19,13 @@ public class UsuarioController {
     private UsuarioService usuarioService;
 
     @PostMapping("cadastro")
-    public ResponseEntity<Usuario> create(@RequestBody UsuarioDTO request){
+    public ResponseEntity<Usuario> criarUsuario(@RequestBody UsuarioDTO request) {
         Usuario usuario = this.usuarioService.create(request);
         return ok(usuario);
     }
 
     @PostMapping("editar/{usuarioId}")
-    public ResponseEntity<Usuario> atualizarPerfil(@PathVariable("usuarioId") Long usuarioId, @RequestBody UsuarioDTO request) throws NotFoundException {
+    public ResponseEntity<Usuario> atualizarUsuario(@PathVariable("usuarioId") Long usuarioId, @RequestBody UsuarioDTO request) throws NotFoundException {
         Usuario usuario = this.usuarioService.update(usuarioId, request);
         return ok(usuario);
     }
@@ -37,7 +37,7 @@ public class UsuarioController {
     }
 
     @DeleteMapping("delete/{usuarioId}")
-    public ResponseEntity<String> deletePerfil(@PathVariable("usuarioId") Long usuarioId){
+    public ResponseEntity<String> deleteUsuario(@PathVariable("usuarioId") Long usuarioId) {
         return ok(this.usuarioService.delete(usuarioId));
     }
 }
