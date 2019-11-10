@@ -4,6 +4,7 @@ import java.time.LocalDate;
 
 public class UsuarioDTO {
 
+    private String matricula;
     private String name;
     private String email;
     private LocalDate dataDeNascimento;
@@ -48,6 +49,4 @@ public class UsuarioDTO {
     public void setMatricula(String matricula) {
         this.matricula = matricula;
     }
-
-    public String matricula;
 }

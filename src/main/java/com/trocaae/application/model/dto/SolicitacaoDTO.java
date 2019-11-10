@@ -1,7 +1,5 @@
 package com.trocaae.application.model.dto;
 
-import org.apache.tomcat.jni.Local;
-
 import java.time.LocalDate;
 
 public class SolicitacaoDTO {
@@ -11,20 +9,36 @@ public class SolicitacaoDTO {
     private String status;
     private LocalDate dataDeDevolucao;
 
-    public Long getIdJogoInstancia(){ return this.idJogoInstancia; }
+    public Long getIdJogoInstancia() {
+        return this.idJogoInstancia;
+    }
 
-    public void setIdJogoInstancia(Long idJogoInstancia){ this.idJogoInstancia = idJogoInstancia; }
+    public void setIdJogoInstancia(Long idJogoInstancia) {
+        this.idJogoInstancia = idJogoInstancia;
+    }
 
-    public Long getIdDonoDoJogo(){ return this.idDonoDoJogo; }
+    public Long getIdDonoDoJogo() {
+        return this.idDonoDoJogo;
+    }
 
-    public void setIdDonoDoJogo(Long idDonoDoJogo){ this.idDonoDoJogo = idDonoDoJogo; }
+    public void setIdDonoDoJogo(Long idDonoDoJogo) {
+        this.idDonoDoJogo = idDonoDoJogo;
+    }
 
-    public String getStatus(){ return this.status; }
+    public String getStatus() {
+        return this.status;
+    }
 
-    public void setStatus(String status){ this.status = status; }
+    public void setStatus(String status) {
+        this.status = status;
+    }
 
-    public LocalDate getDataDeDevolucao(){ return this.dataDeDevolucao; }
+    public LocalDate getDataDeDevolucao() {
+        return this.dataDeDevolucao;
+    }
 
-    public void setDataDeDevolucao(LocalDate dataDeDevolucao){ this.dataDeDevolucao = dataDeDevolucao; }
+    public void setDataDeDevolucao(LocalDate dataDeDevolucao) {
+        this.dataDeDevolucao = dataDeDevolucao;
+    }
 
 }
