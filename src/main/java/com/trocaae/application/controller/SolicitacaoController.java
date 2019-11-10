@@ -2,6 +2,7 @@ package com.trocaae.application.controller;
 
 
 import com.trocaae.application.model.dto.SolicitacaoDTO;
+import com.trocaae.application.model.sql.Solicitacao;
 import com.trocaae.application.service.SolicitacaoService;
 import javassist.NotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,6 +16,11 @@ public class SolicitacaoController {
 
     @Autowired
     private SolicitacaoService solicitacaoService;
+
+    @PostMapping("create/")
+    public ResponseEntity<Solicitacao> criarNovaSolicitacao(@RequestBody SolicitacaoDTO solicitacaoDTO) throws NotFoundException {
+        return ResponseEntity.ok(this.solicitacaoService.criarNovaSolicitacao(solicitacaoDTO));
+    }
 
     @PutMapping("aprovar/{solicatacaoId}")
     public ResponseEntity<String> aceitarSolicitacao(@PathVariable("solicatacaoId") Long solicatacaoId) {
@@ -31,18 +37,6 @@ public class SolicitacaoController {
     @PutMapping("emEmprestimo/{solicatacaoId}/")
     public ResponseEntity<String> emEmprestimo(@PathVariable("solicatacaoId") Long solicatacaoId) {
         this.solicitacaoService.emEmprestimo(solicatacaoId);
-        return ResponseEntity.ok("Solicitação Aprovada!");
-    }
-
-    @PostMapping("create/")
-    public ResponseEntity<String> criarNovaSolicitacao(@RequestBody SolicitacaoDTO solicitacaoDTO) throws NotFoundException {
-        this.solicitacaoService.create(solicitacaoDTO);
-        return ResponseEntity.ok("Solicitação Aprovada!");
-    }
-
-    @PutMapping("editar/")
-    public ResponseEntity<String> editarSolicitacao(@PathVariable("solicatacaoId") Long solicatacaoId) {
-        this.solicitacaoService.aceitarSolicitacao(solicatacaoId);
         return ResponseEntity.ok("Solicitação Aprovada!");
     }
 

@@ -54,7 +54,7 @@ public class SolicitacaoService {
         });
     }
 
-    public Solicitacao create(SolicitacaoDTO solicitacaoDTO) throws NotFoundException {
+    public Solicitacao criarNovaSolicitacao(SolicitacaoDTO solicitacaoDTO) throws NotFoundException {
         Solicitacao solicitacao = new Solicitacao();
         solicitacao.setStatus(Status.AGUARDANDO_APROVACAO);
         solicitacao.setJogoInstancia(this.jogoInstanciaService.getJogoInstancia(solicitacaoDTO.getIdJogoInstancia()));
@@ -62,7 +62,7 @@ public class SolicitacaoService {
         return this.repository.save(solicitacao);
     }
 
-    public Solicitacao update(Long plataformaId, SolicitacaoDTO solicitacaoDTO) throws NotFoundException {
+    public Solicitacao atualizarSolicitacao(Long plataformaId, SolicitacaoDTO solicitacaoDTO) throws NotFoundException {
         Solicitacao solicitacao = this.repository.findById(plataformaId)
                 .orElseThrow(() -> new NotFoundException("Plataforma não encontrado"));
         if (solicitacaoDTO.getDataDeDevolucao() != null)
@@ -72,16 +72,16 @@ public class SolicitacaoService {
         return this.repository.save(solicitacao);
     }
 
-    public Solicitacao view(Long solicitacaoId) throws NotFoundException {
+    public Solicitacao visualizarSolicitacao(Long solicitacaoId) throws NotFoundException {
         return this.repository.findById(solicitacaoId)
                 .orElseThrow(() -> new NotFoundException("Solicitação não encontrado"));
     }
 
-    public List<Solicitacao> viewList() {
+    public List<Solicitacao> visualizarTodasSolicitacoes() {
         return this.repository.findAll();
     }
 
-    public String delete(Long solicitacaoId) {
+    public String deletarSolicitacao(Long solicitacaoId) {
         this.repository.deleteById(solicitacaoId);
         return "Solicitação com id: " + solicitacaoId + " deletado com sucesso";
     }
