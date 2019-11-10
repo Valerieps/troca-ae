@@ -7,5 +7,5 @@ import java.util.List;
 
 @Repository
 public interface JogoInstanciaRepository extends JpaRepository<JogoInstancia, Long> {
-    List<JogoInstancia> findByUsusrioId(Long usuarioId);
+    
 }
