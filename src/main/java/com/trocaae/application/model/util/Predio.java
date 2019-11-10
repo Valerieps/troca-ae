@@ -9,7 +9,7 @@ public enum Predio {
     DIREITO,
     MEDICINA,
     ICB,
-    iGC,
+    IGC,
     FARMACIA,
     EDUCACAO_FISICA
 }

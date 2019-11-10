@@ -21,7 +21,7 @@ public class JogoPerfilController {
     private JogoPerfilService jogoPerfilService;
 
     @PostMapping("criar")
-    public ResponseEntity<JogoPerfil> create(@RequestBody JogoPerfilDTO request) {
+    public ResponseEntity<JogoPerfil> criarJogoPerfil(@RequestBody JogoPerfilDTO request) {
         JogoPerfil jogoPerfil = this.jogoPerfilService.create(request);
         return ok(jogoPerfil);
     }

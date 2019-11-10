@@ -31,7 +31,7 @@ public class JogoPerfilService {
         JogoPerfil jogoPerfil = new JogoPerfil();
         jogoPerfil.setClassificacaoIndicativa(jogoPerfilDTO.getClassificacaoIndicativa());
         jogoPerfil.setPublisher(jogoPerfilDTO.getPublisher());
-        jogoPerfil.setTitulo(jogoPerfil.getTitulo());
+        jogoPerfil.setTitulo(jogoPerfilDTO.getTitulo());
         return this.repository.save(jogoPerfil);
     }
 
