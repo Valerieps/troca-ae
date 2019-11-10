@@ -1,5 +1,6 @@
 package com.trocaae.application.model.dto;
 
+import com.trocaae.application.model.util.Status;
 import org.junit.Test;
 import java.time.LocalDate;
 import static junit.framework.TestCase.*;
@@ -32,9 +33,9 @@ public class SolicitacaoDTOTest {
         Long idDonoDoJogo = 4321L;
         SolicitacaoDTO solicitacao = new SolicitacaoDTO();
 
-        solicitacao.setIdDonoDoJogo(idDonoDoJogo);
+        solicitacao.setIdSolicitante(idDonoDoJogo);
 
-        assertNotNull(solicitacao.getIdDonoDoJogo());
+        assertNotNull(solicitacao.getIdSolicitante());
     }
 
     @Test
@@ -42,33 +43,26 @@ public class SolicitacaoDTOTest {
         Long idDonoDoJogo = 4321L;
         Long resultado;
         SolicitacaoDTO solicitacao = new SolicitacaoDTO();
-        solicitacao.setIdDonoDoJogo(idDonoDoJogo);
+        solicitacao.setIdSolicitante(idDonoDoJogo);
 
-        resultado = solicitacao.getIdDonoDoJogo();
+        resultado = solicitacao.getIdSolicitante();
 
         assertEquals(resultado, idDonoDoJogo);
     }
 
     @Test
     public void validarSetSatus(){
-        String status = "Aguardando Aprovação";
         SolicitacaoDTO solicitacao = new SolicitacaoDTO();
-
-        solicitacao.setStatus(status);
-
+        solicitacao.setStatus(Status.AGUARDANDO_APROVACAO);
         assertNotNull(solicitacao.getStatus());
     }
 
     @Test
     public void validarGetStatus(){
-        String status = "Aguardando Aprovação";
-        String resultado;
         SolicitacaoDTO solicitacao = new SolicitacaoDTO();
-        solicitacao.setStatus(status);
-
-        resultado = solicitacao.getStatus();
-
-        assertEquals(resultado, status);
+        solicitacao.setStatus(Status.AGUARDANDO_APROVACAO);
+        solicitacao.getStatus();
+        assertEquals(solicitacao.getStatus(), Status.AGUARDANDO_APROVACAO);
     }
 
     @Test
