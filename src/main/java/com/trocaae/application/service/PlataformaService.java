@@ -22,7 +22,7 @@ public class PlataformaService {
                 .orElseThrow(() -> new NotFoundException("Perfil de jogo não encontrado"));
     }
 
-    public Plataforma create(PlataformaDTO plataformaDTO) {
+    public Plataforma criarNovaPlataforma(PlataformaDTO plataformaDTO) {
         Plataforma plataforma = new Plataforma();
         plataforma.setName(plataformaDTO.getName());
         plataforma.setFabricante(plataformaDTO.getFabricante());
@@ -30,7 +30,7 @@ public class PlataformaService {
         return this.repository.save(plataforma);
     }
 
-    public Plataforma update(Long plataformaId, PlataformaDTO plataformaDTO) throws NotFoundException {
+    public Plataforma atualizarPlataforma(Long plataformaId, PlataformaDTO plataformaDTO) throws NotFoundException {
         Plataforma plataforma = this.repository.findById(plataformaId)
                 .orElseThrow(() -> new NotFoundException("Plataforma não encontrado"));
         if (plataformaDTO.getName() != null)
@@ -42,16 +42,16 @@ public class PlataformaService {
         return this.repository.save(plataforma);
     }
 
-    public Plataforma view(Long plataformaId) throws NotFoundException {
+    public Plataforma visualizarPlataforma(Long plataformaId) throws NotFoundException {
         return this.repository.findById(plataformaId)
                 .orElseThrow(() -> new NotFoundException("Plataforma não encontrado"));
     }
 
-    public List<Plataforma> viewList() {
+    public List<Plataforma> visualizarTodasPlataformas() {
         return this.repository.findAll();
     }
 
-    public String delete(Long plataformaId) {
+    public String deletarPlataforma(Long plataformaId) {
         this.repository.deleteById(plataformaId);
         return "Plataforma com id: " + plataformaId + " deletado com sucesso";
     }

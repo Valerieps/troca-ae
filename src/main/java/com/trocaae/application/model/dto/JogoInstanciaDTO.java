@@ -4,7 +4,6 @@ public class JogoInstanciaDTO {
 
     private Long idJogoPerfil;
     private Long idDonoDoJogo;
-    private Long idLocatario;
 
     public Long getIdJogoPerfil() {
         return idJogoPerfil;
@@ -22,11 +21,4 @@ public class JogoInstanciaDTO {
         this.idDonoDoJogo = idDonoDoJogo;
     }
 
-    public Long getIdLocatario() {
-        return idLocatario;
-    }
-
-    public void setIdLocatario(Long idLocatario) {
-        this.idLocatario = idLocatario;
-    }
 }

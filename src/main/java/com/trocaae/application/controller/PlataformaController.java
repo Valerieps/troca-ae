@@ -22,31 +22,31 @@ public class PlataformaController {
 
     @PostMapping("criar")
     public ResponseEntity<Plataforma> criarPLataformas(@RequestBody PlataformaDTO request) {
-        Plataforma plataforma = this.plataformaService.create(request);
+        Plataforma plataforma = this.plataformaService.criarNovaPlataforma(request);
         return ok(plataforma);
     }
 
     @PostMapping("editar/{plataformaId}")
     public ResponseEntity<Plataforma> atualizarPlataformas(@PathVariable("plataformaId") Long plataformaId, @RequestBody PlataformaDTO request) throws NotFoundException {
-        Plataforma plataforma = this.plataformaService.update(plataformaId, request);
+        Plataforma plataforma = this.plataformaService.atualizarPlataforma(plataformaId, request);
         return ok(plataforma);
     }
 
     @GetMapping("view/list")
     public ResponseEntity<List<Plataforma>> visualizarListaDePlataformas() {
-        List<Plataforma> plataforma = this.plataformaService.viewList();
+        List<Plataforma> plataforma = this.plataformaService.visualizarTodasPlataformas();
         return ok(plataforma);
     }
 
     @GetMapping("view/{plataformaId}")
     public ResponseEntity<Plataforma> visualizarPlataforma(@PathVariable("plataformaId") Long plataformaId) throws NotFoundException {
-        Plataforma plataforma = this.plataformaService.view(plataformaId);
+        Plataforma plataforma = this.plataformaService.visualizarPlataforma(plataformaId);
         return ok(plataforma);
     }
 
     @DeleteMapping("delete/{plataformaId}")
     public ResponseEntity<String> deletePlataforma(@PathVariable("plataformaId") Long plataformaId) {
-        return ok(this.plataformaService.delete(plataformaId));
+        return ok(this.plataformaService.deletarPlataforma(plataformaId));
     }
 
 

@@ -25,7 +25,6 @@ public class JogoInstancia {
 
     private Status situacao;
 
-    // Methods
     public Long getId() {
         return id;
     }
