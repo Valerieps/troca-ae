@@ -22,13 +22,13 @@ public class JogoPerfilController {
 
     @PostMapping("criar")
     public ResponseEntity<JogoPerfil> criarJogoPerfil(@RequestBody JogoPerfilDTO request) {
-        JogoPerfil jogoPerfil = this.jogoPerfilService.create(request);
+        JogoPerfil jogoPerfil = this.jogoPerfilService.criarJogoPerfil(request);
         return ok(jogoPerfil);
     }
 
     @PostMapping("editar/{jogoPerfilId}")
     public ResponseEntity<JogoPerfil> atualizarPerfil(@PathVariable("jogoPerfilId") Long jogoPerfilId, @RequestBody JogoPerfilDTO request) throws NotFoundException {
-        JogoPerfil jogoPerfil = this.jogoPerfilService.update(jogoPerfilId, request);
+        JogoPerfil jogoPerfil = this.jogoPerfilService.atualizarJogoPerfil(jogoPerfilId, request);
         return ok(jogoPerfil);
     }
 
@@ -46,7 +46,7 @@ public class JogoPerfilController {
 
     @GetMapping("view/{jogoPerfilId}")
     public ResponseEntity<JogoPerfil> visualizarJogoPerfil(@PathVariable("jogoPerfilId") Long jogoPerfilId) throws NotFoundException {
-        JogoPerfil jogoPerfil = this.jogoPerfilService.view(jogoPerfilId);
+        JogoPerfil jogoPerfil = this.jogoPerfilService.visualizarJogoPerfil(jogoPerfilId);
         return ok(jogoPerfil);
     }
 

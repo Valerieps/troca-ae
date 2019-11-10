@@ -10,6 +10,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @Controller
 @RequestMapping("solicitacao/")
 public class SolicitacaoController {
@@ -35,14 +37,21 @@ public class SolicitacaoController {
     }
 
     @PutMapping("emEmprestimo/{solicatacaoId}/")
-    public ResponseEntity<String> emEmprestimo(@PathVariable("solicatacaoId") Long solicatacaoId) {
-        this.solicitacaoService.emEmprestimo(solicatacaoId);
+    public ResponseEntity<String> confirmarEmprestimo(@PathVariable("solicatacaoId") Long solicatacaoId) {
+        this.solicitacaoService.confirmarEmprestimo(solicatacaoId);
         return ResponseEntity.ok("Solicitação Aprovada!");
     }
 
-    @PutMapping("{solicatacaoId}/")
+    @DeleteMapping("{solicatacaoId}/")
     public ResponseEntity<String> removerSituacao(@PathVariable("solicatacaoId") Long solicatacaoId) {
-        this.solicitacaoService.aceitarSolicitacao(solicatacaoId);
-        return ResponseEntity.ok("Solicitacao remover");
+        return ResponseEntity.ok(this.solicitacaoService.deletarSolicitacao(solicatacaoId));
     }
+
+    @GetMapping("usuario/{usuarioId}")
+    public ResponseEntity<List<Solicitacao>> buscarSolicitacoesPorUsuario(@PathVariable("usuarioId") Long usuarioId){
+        List<Solicitacao> solicitacaos = this.solicitacaoService.buscarSolicitacaoPorUsuario(usuarioId);
+        return ResponseEntity.ok(solicitacaos);
+    }
+
+
 }

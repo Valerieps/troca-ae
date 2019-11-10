@@ -40,7 +40,7 @@ public class SolicitacaoService {
         });
     }
 
-    public void emEmprestimo(Long solicatacaoId) {
+    public void confirmarEmprestimo(Long solicatacaoId) {
         Optional<Solicitacao> solicitacao = this.repository.findById(solicatacaoId);
         solicitacao.ifPresent(value -> {
             try {
@@ -86,6 +86,9 @@ public class SolicitacaoService {
         return "Solicitação com id: " + solicitacaoId + " deletado com sucesso";
     }
 
+    public List<Solicitacao> buscarSolicitacaoPorUsuario(Long usuarioId) {
+        return this.repository.findAllBySolicitanteId(usuarioId);
+    }
 }
 
 
