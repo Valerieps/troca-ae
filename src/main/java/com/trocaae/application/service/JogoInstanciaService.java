@@ -34,7 +34,7 @@ public class JogoInstanciaService {
 
     public JogoInstancia create(JogoInstanciaDTO jogoInstanciaDTO) throws NotFoundException {
         Usuario usuario = this.usuarioService.getUsuario(jogoInstanciaDTO.getIdDonoDoJogo());
-        JogoPerfil jogoPerfil = jogoPerfilService.getJogoPerfil(jogoInstanciaDTO.getIdJogoPerfil());
+        JogoPerfil jogoPerfil = jogoPerfilService.getIfExistsJogoPerfil(jogoInstanciaDTO.getIdJogoPerfil());
         JogoInstancia jogoInstancia = new JogoInstancia();
         jogoInstancia.setDonoDoJogo(usuario);
         jogoInstancia.setJogoPerfil(jogoPerfil);

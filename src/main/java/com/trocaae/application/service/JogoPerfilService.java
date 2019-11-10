@@ -22,7 +22,7 @@ public class JogoPerfilService {
         this.plataformaService = plataformaService;
     }
 
-    public JogoPerfil getJogoPerfil(Long perfilId) throws NotFoundException {
+    public JogoPerfil getIfExistsJogoPerfil(Long perfilId) throws NotFoundException {
         return this.repository.findById(perfilId)
                 .orElseThrow(() -> new NotFoundException("Perfil não encontrado"));
     }
