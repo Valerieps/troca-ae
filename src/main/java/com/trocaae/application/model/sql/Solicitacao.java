@@ -17,7 +17,7 @@ public class Solicitacao {
     private JogoInstancia jogoInstancia;
 
     @OneToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "id_dono_do_jogo")
+    @JoinColumn(name = "id_solicitante")
     private Usuario solicitante;
 
     @Enumerated(EnumType.STRING)

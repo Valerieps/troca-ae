@@ -27,7 +27,7 @@ public class JogoPerfilService {
                 .orElseThrow(() -> new NotFoundException("Perfil não encontrado"));
     }
 
-    public JogoPerfil create(JogoPerfilDTO jogoPerfilDTO) {
+    public JogoPerfil criarJogoPerfil(JogoPerfilDTO jogoPerfilDTO) {
         JogoPerfil jogoPerfil = new JogoPerfil();
         jogoPerfil.setClassificacaoIndicativa(jogoPerfilDTO.getClassificacaoIndicativa());
         jogoPerfil.setPublisher(jogoPerfilDTO.getPublisher());
@@ -35,7 +35,7 @@ public class JogoPerfilService {
         return this.repository.save(jogoPerfil);
     }
 
-    public JogoPerfil update(Long jogoPerfilId, JogoPerfilDTO jogoPerfilDTO) throws NotFoundException {
+    public JogoPerfil atualizarJogoPerfil(Long jogoPerfilId, JogoPerfilDTO jogoPerfilDTO) throws NotFoundException {
         JogoPerfil jogoPerfil = this.repository.findById(jogoPerfilId)
                 .orElseThrow(() -> new NotFoundException("Perfil de jogo não encontrado"));
         if (jogoPerfilDTO.getClassificacaoIndicativa() != null)
@@ -47,7 +47,7 @@ public class JogoPerfilService {
         return this.repository.save(jogoPerfil);
     }
 
-    public JogoPerfil view(Long jogoPerfilId) throws NotFoundException {
+    public JogoPerfil visualizarJogoPerfil(Long jogoPerfilId) throws NotFoundException {
         return this.repository.findById(jogoPerfilId)
                 .orElseThrow(() -> new NotFoundException("Jogo Perfil não encontrado"));
     }
