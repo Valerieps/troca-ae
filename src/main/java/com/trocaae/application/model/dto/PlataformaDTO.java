@@ -1,21 +1,9 @@
-package com.trocaae.application.model.sql;
+package com.trocaae.application.model.dto;
 
-import javax.persistence.*;
+public class PlataformaDTO {
 
-@Entity
-public class Plataforma {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-
-    @Column(name = "name")
     private String name;
-
-    @Column(name = "fabricante")
     private String fabricante;
-
-    @Column(name = "regiao")
     private String regiao;
 
     public String getName() {
@@ -41,5 +29,4 @@ public class Plataforma {
     public void setRegiao(String regiao) {
         this.regiao = regiao;
     }
-
 }
