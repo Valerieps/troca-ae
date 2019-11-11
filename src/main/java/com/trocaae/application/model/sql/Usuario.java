@@ -1,11 +1,7 @@
 package com.trocaae.application.model.sql;
 
-import com.trocaae.application.model.util.Predio;
-
 import javax.persistence.*;
 import java.time.LocalDate;
-import java.util.List;
-import java.util.Set;
 
 @Entity
 public class Usuario {
@@ -30,6 +26,10 @@ public class Usuario {
     private String matricula;
 
     public String predios;
+
+    public Long getId() {
+        return id;
+    }
 
     public String getName() {
         return name;

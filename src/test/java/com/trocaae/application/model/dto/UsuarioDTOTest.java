@@ -44,7 +44,7 @@ public class UsuarioDTOTest {
         UsuarioDTO usuario = new UsuarioDTO();
         usuario.setName(nomeUsuario);
 
-        resultado = usuario.getMatricula();
+        resultado = usuario.getName();
 
         assertEquals(nomeUsuario, resultado);
     }

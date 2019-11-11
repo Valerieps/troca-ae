@@ -4,7 +4,7 @@ jobs:
     working_directory: ~/troca-ae
 
     docker:
-      - image: circleci/openjdk:12-jdk-stretch
+      - image: circleci/openjdk:11.0.3-jdk-stretch
 
     steps:
 
@@ -21,7 +21,7 @@ jobs:
             - ~/.m2
           key: troca-ae-{{ checksum "pom.xml" }}
 
-      - run: mvn package # run the actual tests
+#      - run: mvn package # run the actual tests
 
       - store_test_results: # uploads the test metadata from the `target/surefire-reports` directory so that it can show up in the CircleCI dashboard. 
           # Upload test results for display in Test Summary: https://circleci.com/docs/2.0/collect-test-data/
