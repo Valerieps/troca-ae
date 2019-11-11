@@ -8,22 +8,28 @@ public class Usuario {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    public Long id;
+    private Long id;
 
     @Column(name = "name")
-    public String name;
+    private String name;
 
     @Column(name = "email")
-    public String email;
+    private String email;
 
     @Column(name = "data_de_nascimento")
-    public LocalDate dataDeNascimento;
+    private LocalDate dataDeNascimento;
 
     @Column(name = "esta_bloqueado")
-    public Boolean estaBloqueado;
+    private Boolean estaBloqueado;
 
     @Column(name = "matricula")
-    public String matricula;
+    private String matricula;
+
+    private String predios;
+
+    public Long getId() {
+        return id;
+    }
 
     public String getName() {
         return name;
@@ -63,5 +69,13 @@ public class Usuario {
 
     public void setMatricula(String matricula) {
         this.matricula = matricula;
+    }
+
+    public String getPredios(){
+        return predios;
+    }
+
+    public void setPredios(String predios){
+        this.predios = predios;
     }
 }
