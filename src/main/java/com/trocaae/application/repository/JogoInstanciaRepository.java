@@ -6,5 +6,6 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface JogoInstanciaRepository extends JpaRepository<JogoInstancia, Long> {
+    // This interface is intentionally left blank
 
 }
