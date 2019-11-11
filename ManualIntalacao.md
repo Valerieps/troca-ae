@@ -15,8 +15,7 @@ Após o procedimento, o Maven irá baixar e instalar todas as depenências neces
 
 ## 2) Para compilar e rodar o projet  
 1. Execute o arquivo src/main/java/com.trocae.application/Application
-2. Assim que a aplicação estiver compilada, o acesso aos endpoint estará disponível em http://localhost:9095/swagger-ui.html#/
-3. 
+2. Assim que a aplicação estiver compilada, o acesso aos endpoint estará disponível em http://localhost:9095/swagger-ui.html#/ 
 
 
 ## 3) Rodando testes
