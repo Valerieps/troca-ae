@@ -50,4 +50,13 @@ public class UsuarioTest {
         assertEquals(usuario.getMatricula(), matricula);
     }
 
+    @Test
+    public void testSetAndGetPredios(){
+        Usuario usuario = new Usuario();
+        String predios = "ICEX";
+        usuario.setPredios(predios);
+
+        assertEquals(usuario.getMatricula(), predios);
+    }
+
 }
