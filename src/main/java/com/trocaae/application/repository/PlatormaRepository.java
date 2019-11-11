@@ -6,4 +6,6 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface PlatormaRepository extends JpaRepository<Plataforma, Long> {
+    // This interface is intentionally left blank
+
 }

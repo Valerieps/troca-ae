@@ -25,7 +25,7 @@ public class Usuario {
     @Column(name = "matricula")
     private String matricula;
 
-    public String predios;
+    private String predios;
 
     public Long getId() {
         return id;
@@ -69,5 +69,13 @@ public class Usuario {
 
     public void setMatricula(String matricula) {
         this.matricula = matricula;
+    }
+
+    public String getPredios(){
+        return predios;
+    }
+
+    public void setPredios(String predios){
+        this.predios = predios;
     }
 }
